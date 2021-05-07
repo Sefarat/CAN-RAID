@@ -20,6 +20,7 @@ void setup()
         Serial.println(" Init CAN BUS Shield again");
         delay(100);
     }
+    randomSeed(analogRead(0)); //Initiate generator with a random reading of an unused pin
     Serial.println("CAN BUS Shield init ok!");
 }
 
@@ -40,7 +41,7 @@ void loop()
         }
     }
     
-    CAN.sendMsgBuf(0x0C1, 0, 8, stmp); 
+    CAN.sendMsgBuf(CAN.padID(0x0C1), 1, 8, stmp); //Has to be extended (the second argument)
     delay(100);                       // send data per 100ms
 }
 
