@@ -148,7 +148,9 @@ public:
     byte readRxTxStatus(void);                                      // read has something send or received
     byte checkClearRxStatus(byte *status);                          // read and clear and return first found rx status bit
     byte checkClearTxStatus(byte *status, byte iTxBuf=0xff);        // read and clear and return first found or buffer specified tx status bit
-
+    //RAID
+    unsigned long MCP_CAN::padID(unsigned long id, bool randomize = true);
+    unsigned long unpadID(unsigned long id);
 };
 
 #endif
